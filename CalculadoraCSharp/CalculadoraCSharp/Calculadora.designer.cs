@@ -44,6 +44,7 @@
             this.btnDivisao = new System.Windows.Forms.Button();
             this.btnResultado = new System.Windows.Forms.Button();
             this.txtResultado = new System.Windows.Forms.TextBox();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -204,11 +205,22 @@
             this.txtResultado.Size = new System.Drawing.Size(218, 20);
             this.txtResultado.TabIndex = 16;
             // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(6, 197);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(50, 41);
+            this.btnLimpar.TabIndex = 17;
+            this.btnLimpar.Text = "CE";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
             // frmCalculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(230, 247);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.txtResultado);
             this.Controls.Add(this.btnResultado);
             this.Controls.Add(this.btnDivisao);
@@ -225,7 +237,10 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmCalculadora";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -253,7 +268,8 @@
         public int num1;
         public int num2;
         public string operador;
-        public float result;
+        public float result = 0;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }
 

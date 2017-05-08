@@ -113,5 +113,10 @@ namespace Calculadora
             operador = "-";
             txtResultado.Clear();
         }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txtResultado.Clear();
+        }
     }
 }
