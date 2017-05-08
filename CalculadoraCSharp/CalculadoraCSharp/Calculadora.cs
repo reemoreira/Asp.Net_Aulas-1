@@ -117,6 +117,10 @@ namespace Calculadora
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             txtResultado.Clear();
+            num1 = 0;
+            num2 = 0;
+            result = 0;
+            operador = null;
         }
     }
 }
