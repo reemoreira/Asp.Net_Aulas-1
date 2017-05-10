@@ -1,0 +1,23 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PaginaMaster.master.cs" Inherits="Aula1005.PaginaMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="cabecalho" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="conteudo" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="rodape" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
