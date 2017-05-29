@@ -18,6 +18,7 @@ namespace Aula2405_EF_MF.Model
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public int CategoriaId { get; set; }
+        public bool Ativo { get; set; }
     
         public virtual Categoria Categoria { get; set; }
     }

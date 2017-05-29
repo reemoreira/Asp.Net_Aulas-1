@@ -2,10 +2,10 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/24/2017 09:17:37
+-- Date Created: 05/29/2017 08:59:26
 -- Generated from EDMX file: C:\Users\Aluno\Source\Repos\MY_Asp.Net_Aulas\Aula2405_EF_MF\Aula2405_EF_MF\Model\BaseDados.edmx
 -- --------------------------------------------------
--- esse script a paga e recria as tabelas
+
 SET QUOTED_IDENTIFIER OFF;
 GO
 USE [LojaDB];
@@ -17,11 +17,20 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_ProdutoCategoria]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Produtos] DROP CONSTRAINT [FK_ProdutoCategoria];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Produtos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Produtos];
+GO
+IF OBJECT_ID(N'[dbo].[Categorias]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Categorias];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -32,7 +41,8 @@ CREATE TABLE [dbo].[Produtos] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Nome] nvarchar(50)  NOT NULL,
     [Descricao] nvarchar(max)  NULL,
-    [CategoriaId] int  NOT NULL
+    [CategoriaId] int  NOT NULL,
+    [Ativo] bit  NOT NULL
 );
 GO
 
@@ -40,7 +50,8 @@ GO
 CREATE TABLE [dbo].[Categorias] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Nome] nvarchar(50)  NOT NULL,
-    [Descricao] nvarchar(max)  NULL
+    [Descricao] nvarchar(max)  NULL,
+    [Ativo] bit  NOT NULL
 );
 GO
 

@@ -9,7 +9,7 @@ using Aula2405_EF_MF.Dao;
 
 namespace Aula2405_EF_MF.View.Categorias
 {
-    public partial class CadCategoria : System.Web.UI.Page
+    public partial class CadCategoria : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,8 +21,8 @@ namespace Aula2405_EF_MF.View.Categorias
             Categoria cat = new Categoria();
             cat.Nome = txtNome.Text;
             cat.Descricao = txtDescricao.Text;
-            CatDao.Incluir(cat);
-        }
+            cat.Ativo = true;
+            CategoriasController.Adicionar(cat);        }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {

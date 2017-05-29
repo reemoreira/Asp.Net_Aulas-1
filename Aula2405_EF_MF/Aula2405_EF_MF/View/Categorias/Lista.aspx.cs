@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Aula2405_EF_MF.View.Categorias
 {
-    public partial class Lista : BasePage
+    public partial class Lista :BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,6 +18,9 @@ namespace Aula2405_EF_MF.View.Categorias
             gvCategorias.DataSource = Lista;
          // gvCategorias.DataSource = Lista.OrderBy(x => x.Nome);
             gvCategorias.DataBind();
+
+            gvCategoriasInativas.DataSource = crtl.ListarInativo();
+            gvCategoriasInativas.DataBind();
 
         }
     }
