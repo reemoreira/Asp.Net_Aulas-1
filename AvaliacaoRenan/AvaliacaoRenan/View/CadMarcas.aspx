@@ -4,15 +4,20 @@
     
     <div id ="divone">
         <div>
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label> 
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:Label ID="lblNome" runat="server" Text="Nome"></asp:Label> 
+        <asp:TextBox ID="txtNome" runat="server"></asp:TextBox>
         </div>
     </div>
-
-
-
-
-
-
-
+    <div>
+        <div>
+        <asp:Label ID="lblDescricao" runat="server" Text="Descricao"></asp:Label> 
+        <asp:TextBox ID="txtDescricao" runat="server"></asp:TextBox>
+        </div>
+    </div>
+    <div>
+        <div>
+            <asp:Button ID="btnSalvar" runat="server" Text="Salvar" />
+            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
+        </div>
+    </div>
 </asp:Content>
