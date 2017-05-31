@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d664e6192f594b3584276d0f5db68cb0" Name="Diagram1" >
+        <EntityTypeShape EntityType="BaseDados.Suplemento" Width="1.5" PointX="4.75" PointY="3" />
+        <EntityTypeShape EntityType="BaseDados.Marca" Width="1.5" PointX="8.875" PointY="2.75" />
+        <AssociationConnector Association="BaseDados.SuplementoMarca" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

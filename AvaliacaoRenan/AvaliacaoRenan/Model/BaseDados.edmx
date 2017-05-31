@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BaseDados.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BaseDadosStoreContainer">
+    <EntitySet Name="Suplementos" EntityType="BaseDados.Store.Suplementos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Marcas" EntityType="BaseDados.Store.Marcas" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SuplementoMarca" Association="BaseDados.Store.SuplementoMarca">
+      <End Role="Suplemento" EntitySet="Suplementos" />
+      <End Role="Marca" EntitySet="Marcas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Suplementos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Forma" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Origem" Type="nvarchar" Nullable="false" MaxLength="11" />
+    <Property Name="Ativo" Type="bit" Nullable="false" />
+    <Property Name="Marca_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Marcas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ativo" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="SuplementoMarca">
+    <End Role="Suplemento" Type="BaseDados.Store.Suplementos" Multiplicity="*" />
+    <End Role="Marca" Type="BaseDados.Store.Marcas" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Marca">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Suplemento">
+        <PropertyRef Name="Marca_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="BaseDados" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="BaseDadosContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Suplementos" EntityType="BaseDados.Suplemento" />
+          <EntitySet Name="Marcas" EntityType="BaseDados.Marca" />
+          <AssociationSet Name="SuplementoMarca" Association="BaseDados.SuplementoMarca">
+            <End Role="Suplemento" EntitySet="Suplementos" />
+            <End Role="Marca" EntitySet="Marcas" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Suplemento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="Forma" Type="String" Nullable="false" MaxLength="10" />
+          <Property Name="Origem" Type="String" Nullable="false" MaxLength="11" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Marca" Relationship="BaseDados.SuplementoMarca" FromRole="Suplemento" ToRole="Marca" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Suplemento" Relationship="BaseDados.SuplementoMarca" FromRole="Marca" ToRole="Suplemento" />
+        </EntityType>
+        <Association Name="SuplementoMarca">
+          <End Type="BaseDados.Suplemento" Role="Suplemento" Multiplicity="*" />
+          <End Type="BaseDados.Marca" Role="Marca" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BaseDadosStoreContainer" CdmEntityContainer="BaseDadosContainer">
+    <EntitySetMapping Name="Suplementos">
+      <EntityTypeMapping TypeName="IsTypeOf(BaseDados.Suplemento)">
+        <MappingFragment StoreEntitySet="Suplementos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Forma" ColumnName="Forma" />
+          <ScalarProperty Name="Origem" ColumnName="Origem" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marcas">
+      <EntityTypeMapping TypeName="IsTypeOf(BaseDados.Marca)">
+        <MappingFragment StoreEntitySet="Marcas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SuplementoMarca" TypeName="BaseDados.SuplementoMarca" StoreEntitySet="Suplementos">
+      <EndProperty Name="Marca">
+        <ScalarProperty Name="Id" ColumnName="Marca_Id" />
+      </EndProperty>
+      <EndProperty Name="Suplemento">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
