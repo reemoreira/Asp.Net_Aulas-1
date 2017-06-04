@@ -8,8 +8,8 @@ namespace AvaliacaoRenan.Dao
 {
     public class MarcaController
     {
-         protected BaseDadosContainer contexto = new BaseDadosContainer();
-         public void Adicionar(Marca Marca)
+       static  protected BaseDadosContainer contexto = new BaseDadosContainer();
+       static  public void Adicionar(Marca Marca)
         {
             if (Marca != null)
             {
@@ -17,25 +17,29 @@ namespace AvaliacaoRenan.Dao
                 contexto.SaveChanges();
             }
         }
-        public List<Marca> Listar()
+        static public List<Marca> Listar()
         {
             return contexto.Marcas.Where(x => x.Ativo == true).ToList();
         }
-        public List<Marca> ListarInativo()
+        static public List<Marca> ListarInativo()
         {
             return contexto.Marcas.Where(x => x.Ativo == false).ToList();
         }
-         public Marca BuscarPorId(int id)
+        static public Marca BuscarPorId(int id)
         {
             return contexto.Marcas.Find(id);
         }
-        public void Excluir(Marca Marca)
+        static public Marca BuscarPorNome(string Nome)
+        {
+            return contexto.Marcas.FirstOrDefault(x=>x.Nome.Equals(Nome));
+        }
+        static public void Excluir(Marca Marca)
         {
             //gera um update
-            Marca.Ativo = false;
             contexto.Entry(Marca).State = System.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
         }
-        public void Editar(Marca Marca)
+        static public void Editar(Marca Marca)
         {
             contexto.Entry(Marca).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();

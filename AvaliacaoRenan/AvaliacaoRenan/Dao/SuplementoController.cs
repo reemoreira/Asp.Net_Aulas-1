@@ -8,34 +8,40 @@ namespace AvaliacaoRenan.Dao
 {
     public class SuplementoController
     {
-        protected BaseDadosContainer contexto = new BaseDadosContainer();
-        public void Adicionar(Suplemento Sup)
+       static protected BaseDadosContainer contexto = new BaseDadosContainer();
+        static public void Adicionar(Suplemento Sup)
         {
             if (Sup != null)
             {
                 contexto.Suplementos.Add(Sup);
+                //problema de contexto
                 contexto.SaveChanges();
             }
         }
-        public List<Suplemento> Listar()
+        static public List<Suplemento> Listar()
         {
             return contexto.Suplementos.Where(x => x.Ativo == true).ToList();
         }
-        public List<Suplemento> ListarInativo()
+        static public List<Suplemento> ListarInativo()
         {
             return contexto.Suplementos.Where(x => x.Ativo == false).ToList();
         }
-        public Suplemento BuscarPorId(int id)
+        static public Suplemento BuscarPorId(int id)
         {
             return contexto.Suplementos.Find(id);
         }
-        public void Excluir(Suplemento Sup)
+        static public Suplemento BuscarPorNome(string Nome)
+        {
+            return contexto.Suplementos.FirstOrDefault(x => x.Nome.Equals(Nome));
+        }
+        static public void Excluir(Suplemento Sup)
         {
             //gera um update
             Sup.Ativo = false;
             contexto.Entry(Sup).State = System.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
         }
-        public void Editar(Suplemento Sup)
+        static public void Editar(Suplemento Sup)
         {
             contexto.Entry(Sup).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
