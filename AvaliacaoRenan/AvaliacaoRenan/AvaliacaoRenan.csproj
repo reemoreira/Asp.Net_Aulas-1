@@ -233,6 +233,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dao\BaseController.cs" />
     <Compile Include="Dao\MarcaController.cs" />
     <Compile Include="Dao\SuplementoController.cs" />
     <Compile Include="Default.aspx.cs">

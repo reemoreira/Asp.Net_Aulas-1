@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\User\Source\Repos\MY_Asp.Net_Aulas\AvaliacaoRenan\AvaliacaoRenan\Model\BaseDados.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Aluno\Source\Repos\MY_Asp.Net_Aulas\AvaliacaoRenan\AvaliacaoRenan\Model\BaseDados.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

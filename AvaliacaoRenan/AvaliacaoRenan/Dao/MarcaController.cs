@@ -6,9 +6,8 @@ using System.Web;
 
 namespace AvaliacaoRenan.Dao
 {
-    public class MarcaController
+    public class MarcaController : BaseController
     {
-       static  protected BaseDadosContainer contexto = new BaseDadosContainer();
        static  public void Adicionar(Marca Marca)
         {
             if (Marca != null)

@@ -6,9 +6,9 @@ using System.Web;
 
 namespace AvaliacaoRenan.Dao
 {
-    public class SuplementoController
+    public class SuplementoController: BaseController
     {
-       static protected BaseDadosContainer contexto = new BaseDadosContainer();
+       
         static public void Adicionar(Suplemento Sup)
         {
             if (Sup != null)
