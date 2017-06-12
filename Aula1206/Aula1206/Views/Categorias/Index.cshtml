@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Aula1206.Models.Categoria>
+
 @{
     ViewBag.Title = "Categorias";
 }
@@ -8,8 +9,21 @@
 <br />
 <h2> @ViewBag.Title</h2>
 
-@foreach(string cat in ViewBag.ListaCategorias)
-{
-    @Html.ActionLink(@cat,"Index","Categorias")
-     @: |
+@foreach(var cat in Model)
+{   
+    <dl>    
+    <dt>@cat.Nome</dt>
+        @if (!string.IsNullOrEmpty(cat.Descricao))
+        {
+            <dd>@cat.Descricao</dd>
+        }
+        else
+        {
+            <dd>
+                <em>
+                Sem descrição  
+                </em>
+        </dd>
+        }
+     </dl>
 }
