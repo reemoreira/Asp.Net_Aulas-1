@@ -1,0 +1,24 @@
+﻿@model Aula1406.Models.Categoria
+
+@{
+    ViewBag.Title = "Editar Categoria";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m=> Model.CategoriaID) // hidden nao monstra o campo id mais passa um valor(campo escondido)
+
+    @Html.LabelFor(m => Model.Nome)
+    @Html.EditorFor(m => Model.Nome)
+    @Html.ValidationMessageFor(m => Model.Nome)
+    @Html.LabelFor(m => m.Descricao)
+    @Html.EditorFor(m => Model.Descricao)
+    @Html.ValidationMessageFor(m => Model.Descricao)
+    @Html.EditorFor(m => Model.Ativo)
+    @Html.LabelFor(m => Model.Ativo)
+
+    <input type="submit" value="Editar" class="btn btn-primary" />
+}
+

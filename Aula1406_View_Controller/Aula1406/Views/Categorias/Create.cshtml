@@ -1,0 +1,28 @@
+﻿@model Aula1406.Models.Categoria
+
+@{
+    ViewBag.Title = "Adicionar Categoria";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @*tag form do html 
+   
+    não esquecer essa linha !!! @model <Aula1406.Models.Categoria>
+    primeira versao
+    @Html.LabelFor(m => Model.Nome)
+    @Html.EditorFor(m => Model.Nome)
+    @Html.ValidationMessageFor(m => Model.Nome)
+    @Html.LabelFor(m => m.Descricao)
+    @Html.EditorFor(m => Model.Descricao)
+    @Html.ValidationMessageFor(m => Model.Descricao)
+    @Html.EditorFor(m => Model.Ativo)
+    @Html.LabelFor(m => Model.Ativo)*@
+    
+     
+    @Html.EditorForModel()
+
+    <input type="submit" value="Adicionar" class="btn btn-primary" />
+}
