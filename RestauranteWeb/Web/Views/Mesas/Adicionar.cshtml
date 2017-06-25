@@ -1,9 +1,46 @@
-﻿
+﻿@model BaseModels.Mesa
 @{
-    ViewBag.Title = "View";
-    Layout = "Adicionar";
-}
+    ViewBag.Title = "Adicionar";
 }
 
-<h2>View</h2>
+<h2>Adicionar</h2>
 
+@using (Html.BeginForm()) // arbindo o form
+{
+    @Html.AntiForgeryToken() // utilizado para que não seja recebido informações falsa
+                            <div class="form-horizontal">
+                               <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                            @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control", placeholder = "Numero da Mesa:", } })
+                                            @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                            @Html.EditorFor(model => model.QtdCadeiras, new { htmlAttributes = new { @class = "form-control", placeholder = "Quantidade de Lugares da mesa:" } })
+                                            @Html.ValidationMessageFor(model => model.QtdCadeiras , "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>                         
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Criar" class="btn btn-success" />
+                                    </div>
+                                </div>
+                            </div>
+}
+<div>
+    @Html.ActionLink("Voltar para Home", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

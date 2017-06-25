@@ -25,8 +25,9 @@ namespace Web.Controllers
         }
 
         // POST
-        [HttpPost]
-        public ActionResult Create(Mesa mesa)
+        [HttpPost, ActionName("Adicionar")]
+        
+        public ActionResult Create([Bind(Include = "MesaID,Numero,QtdLugaes,Ativo,Status")]Mesa mesa)
         {
             if (ModelState.IsValid)
             {
