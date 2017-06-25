@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/30/2017 19:11:19
--- Generated from EDMX file: C:\Users\User\Source\Repos\MY_Asp.Net_Aulas\AvaliacaoRenan\AvaliacaoRenan\Model\BaseDados.edmx
+-- Date Created: 06/05/2017 09:04:27
+-- Generated from EDMX file: C:\Users\Aluno\Source\Repos\MY_Asp.Net_Aulas\AvaliacaoRenan\AvaliacaoRenan\Model\BaseDados.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;

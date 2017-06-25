@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Aula1206.Models.Categoria>
+
+@{
+    ViewBag.Title = "Categorias";
+}
+<br />
+<br />
+<br />
+<br />
+<h2> @ViewBag.Title</h2>
+
+@foreach(var cat in Model)
+{   
+    <dl>    
+    <dt>@cat.Nome</dt>
+        @if (!string.IsNullOrEmpty(cat.Descricao))
+        {
+            <dd>@cat.Descricao</dd>
+        }
+        else
+        {
+            <dd>
+                <em>
+                Sem descrição  
+                </em>
+        </dd>
+        }
+     </dl>
+}

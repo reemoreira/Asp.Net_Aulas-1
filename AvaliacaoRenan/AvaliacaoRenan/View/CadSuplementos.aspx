@@ -1,36 +1,36 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadSuplementos.aspx.cs" Inherits="AvaliacaoRenan.View.CadSuplementos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container">
+    <div class="container" aligh ="center">
         <div class="row"> 
-            <div class="MyDiv">
+            <div class="MyDiv">               
         <asp:Label ID="lblNome"  CssClass="MyLabel" runat="server" Text="Nome"></asp:Label>
-        <asp:TextBox ID="txtNome" CssClass="Mytextbox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtNome" CssClass="Mytextbox" runat="server"></asp:TextBox>               
             </div>
         </div>
-    </div>
-    <div class="container">
+    </div><br>
+    <div aligh ="center">
         <div class="row">
             <div class="MyDiv">
         <asp:Label ID="lblDescricao"  CssClass="MyLabel"  runat="server" Text="Descrição"></asp:Label>
-        <asp:TextBox ID="txtDescricao" CssClass="Mytextbox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtDescricao" CssClass="Mytextbox" runat="server" Height="59px" TextMode="MultiLine"></asp:TextBox>
             </div>
         </div>
-    </div>
-    <div="container">
+    </div><br>
+    <div="container"  aligh ="center">
         <div>
             <asp:Label ID="lblMarca"  CssClass="MyLabel" runat="server" Text="Marca"></asp:Label>
             <asp:TextBox ID="txtMarca"  CssClass="Mytextbox" runat="server"></asp:TextBox>
         </div>
-    </div>
-    <div class="container">
+    </div><br>
+    <div class="container"  aligh ="center">
         <div class="row">
             <div class="MyDiv">
-        <asp:Label ID="lblForma" CssClass="MyLabel" runat="server" Text="Forma"></asp:Label>
-        <asp:TextBox ID="txtForma"  CssClass="Mytextbox" runat="server"></asp:TextBox>
+        <asp:Label ID="lblForma" Class="MyLabel" runat="server" Text="Forma"></asp:Label>
+        <asp:TextBox ID="txtForma"  Class="Mytextbox" runat="server"></asp:TextBox>
              </div>
         </div>
-    </div>
-   <div class="container">
+    </div><br>
+   <div class="container"  aligh ="center">
         <div class="row">
             <div class="MyDiv">
         <asp:Label ID="lblOrigem"  CssClass="MyLabel" runat="server" Text="Origem"></asp:Label>
@@ -41,7 +41,8 @@
              </div>   
         </div>
     </div>
-    <div class="container">
+    <br>
+    <div class="container" aligh ="center">
         <div class="row">
             <div class="MyDiv">
             <asp:Label ID="lblAtivo"  CssClass="MyLabel" runat="server" Text="Ativo"></asp:Label>
@@ -52,7 +53,8 @@
               </div>
         </div>
     </div>
-  <div class="container">
+    <br><br>
+  <div class="container" aligh ="center">
         <div class="row">
             <div class="MyDiv">
             <asp:Button ID="btnSalvar" class="btn btn-success" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
@@ -62,7 +64,8 @@
             </div>
         </div>
     </div>
-     <div class="container">
+    <br>
+     <div class="container"  aligh ="center">
         <div class="row">
             <div class="MyDiv">
             <asp:Label ID="lblBuscar"  CssClass="MyLabel" runat="server" Text="Buscar"></asp:Label>
@@ -72,7 +75,7 @@
         </div>
     </div>
      <%--ListarInativo--%>
-    <<div class="container">
+    <<div class="container"  aligh ="center">
         <div class="row">
             <div class="MyDiv">
             <h3>Suplementos Desativados</h3>
@@ -80,12 +83,13 @@
                 </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container"  aligh ="center">
         <div class="row">
             <div class="MyDiv">
             <h3>Marcas Ativas</h3>
             <asp:GridView ID="gvwMarcas" runat="server"></asp:GridView>
             </div>
         </div>
+    </div>
     </div>
 </asp:Content>
