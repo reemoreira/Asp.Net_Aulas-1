@@ -36,6 +36,21 @@ namespace Web.BO
                     return "não há mais mesas disponiveis .";
             }*/
         }
+        public static void AdicionarPontos(Cliente cli, Reserva re)
+        {
+            if (cli.Nome.Equals("")&& cli.Pontos == 0)
+            {
+                cli.Pontos = 1;
+            }else
+            {
+               /* cli = ClienteController.Buscar(nome do cliente que esta logado);
+                acum = cli.Pontos+50;
+
+                cli.Pontos = acum;
+                return "mais 50 pontos foram atribuidos";*/
+            }
+
+        }
 
 
     }
