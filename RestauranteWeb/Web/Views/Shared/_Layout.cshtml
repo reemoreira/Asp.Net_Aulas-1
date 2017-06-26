@@ -26,42 +26,55 @@
                     <li>@Html.ActionLink("Início", "Index", "Home")</li> @*sempre lembrar nome/action/controller*@
                     <li>@Html.ActionLink("Sobre", "About", "Home")</li>
                     <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Genrenciar Reserva <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            @*fazer uma restrição por qm esta logado if(cliente esta on)*@
-                            <li>@Html.ActionLink("Fazer Reserva", "Create", "Reservas")</li>
-                            <li>@Html.ActionLink("Excluir Reserva", "DeleteConfirmed", "Reservas")</li>
-                            <li>@Html.ActionLink("Ver Reserva", "Details", "Reservas")</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Genrenciar Cliente<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            @*fazer uma restrição por qm esta logado if(cliente esta on)*@
-                            <li>@Html.ActionLink("Cadastrar cliente", "Create", "Clientes")</li>
-                            <li>@Html.ActionLink("Deletar cliente", "DeleteConfirmed", "Clientes")</li>
-                            <li>@Html.ActionLink("Editar cliente", "Edit", "Clientes")</li>                      
-                            <li>@Html.ActionLink("Listar cliente", "Details", "Clientes")</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Genrenciar Estabelecimento<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            @*fazer uma restrição por qm esta logado if(dono esta on)*@
-                            <li>@Html.ActionLink("Cadastrar restaurante", "Create", "Estabelecimentos")</li>
-                            <li>@Html.ActionLink("Deletar restaurante", "DeleteConfirmed", "Estabelecimentos")</li>
-                            <li>@Html.ActionLink("Editar restaurante", "Edit", "Estabelecimentos")</li>
-                            <li>@Html.ActionLink("Vizualizar restaurantes", "Details", "Estabelecimentos")</li>
-                            <li role="separator" class="divider"></li>
-                            <li><b>Gerenciamento de mesas</b></li>
-                            <li role="separator" class="divider"></li>
-                            <li>@Html.ActionLink("Adicionar Mesas", "Create", "Mesas")</li>
-                            <li>@Html.ActionLink("Remover Mesas", "DeleteConfirmed", "Mesas")</li>
-                            <li>@Html.ActionLink("Editar Mesas", "Edit", "Mesas")</li>                            
-                            <li>@Html.ActionLink("Mostrar Mesas", "Create", "Mesas")</li>
-                        </ul>
-                    </li>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        // somente admin pode ver
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Genrenciar Reserva <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                @*fazer uma restrição por qm esta logado if(cliente esta on)*@
+                                <li>@Html.ActionLink("Fazer Reserva", "Create", "Reservas")</li>
+                                <li>@Html.ActionLink("Excluir Reserva", "DeleteConfirmed", "Reservas")</li>
+                                <li>@Html.ActionLink("Ver Reserva", "Details", "Reservas")</li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Genrenciar Cliente<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                @*fazer uma restrição por qm esta logado if(cliente esta on)*@
+                                <li>@Html.ActionLink("Cadastrar cliente", "Create", "Clientes")</li>
+                                <li>@Html.ActionLink("Deletar cliente", "DeleteConfirmed", "Clientes")</li>
+                                <li>@Html.ActionLink("Editar cliente", "Edit", "Clientes")</li>
+                                <li>@Html.ActionLink("Listar cliente", "Details", "Clientes")</li>
+                            </ul>
+                        </li>
+                        @if (User.IsInRole("Dono"))
+                        {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Genrenciar Estabelecimento<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                @*fazer uma restrição por qm esta logado if(dono esta on)*@               
+                                <li>@Html.ActionLink("Cadastrar restaurante", "Create", "Estabelecimentos")</li>
+                                <li>@Html.ActionLink("Deletar restaurante", "DeleteConfirmed", "Estabelecimentos")</li>
+                                <li>@Html.ActionLink("Editar restaurante", "Edit", "Estabelecimentos")</li>
+                                <li>@Html.ActionLink("Vizualizar restaurantes", "Details", "Estabelecimentos")</li>
+                                <li role="separator" class="divider"></li>
+                                <li><b>Gerenciamento de mesas</b></li>
+                                <li role="separator" class="divider"></li>
+                                <li>@Html.ActionLink("Adicionar Mesas", "Create", "Mesas")</li>
+                                <li>@Html.ActionLink("Remover Mesas", "DeleteConfirmed", "Mesas")</li>
+                                <li>@Html.ActionLink("Editar Mesas", "Edit", "Mesas")</li>
+                                <li>@Html.ActionLink("Mostrar Mesas", "Create", "Mesas")</li>
+                            </ul>
+                        </li>
+                            }
+                        }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

@@ -19,8 +19,10 @@ namespace Web.Controllers
 
 
         // GET
+        [ActionName("Adicionar")]
         public ActionResult Create()
         {
+            //chamar as rn's nas controller
             return View();
         }
 
