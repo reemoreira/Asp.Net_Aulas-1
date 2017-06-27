@@ -1,114 +1,120 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
-using Web.Models;
 using BaseModels;
+using Web.Models;
+
 namespace Web.Controllers
 {
-    public class EstabelecimentosController : Controller
+    public class ClientesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Estabelecimentos
+        // GET: Clientes
         public ActionResult Index()
         {
-            return View(db.Estabelecimentos.ToList());
+            return View(db.Clientes.ToList());
         }
 
-        // GET: Estabelecimentos/Details/5
+        // GET: Clientes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Estabelecimento estabelecimentos = db.Estabelecimentos.Find(id);
-            if (estabelecimentos == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(estabelecimentos);
+            return View(cliente);
         }
 
-        // GET: Estabelecimentos/Create
+        // GET: Clientes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Estabelecimentos/Create
+        // POST: Clientes/Create
         // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EstabelecimentoID,NameOnwer,EmailAddress,PhoneNumber,RestaurantName,RestaurantDescription,RestaurantCity,RestaurantState,RestaurantCountry,RestaurantPostalCode,Ativo")] Estabelecimento estabelecimentos)
+        public ActionResult Create([Bind(Include = "ClienteID,Nome,Cpf,PhoneNumber,Email,Ativo")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                estabelecimentos.Ativo = true;
-                db.Estabelecimentos.Add(estabelecimentos);
+                cliente.Pontos = 0;
+                cliente.Ativo = true;
+                db.Clientes.Add(cliente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(estabelecimentos);
+            return View(cliente);
         }
 
-        // GET: Estabelecimentos/Edit/5
+        // GET: Clientes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Estabelecimento estabelecimentos = db.Estabelecimentos.Find(id);
-            if (estabelecimentos == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(estabelecimentos);
+            return View(cliente);
         }
 
-        // POST: Estabelecimentos/Edit/5
+        // POST: Clientes/Edit/5
         // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EstabelecimentoID,NameOnwer,EmailAddress,PhoneNumber,RestaurantName,RestaurantDescription,RestaurantCity,RestaurantState,RestaurantCountry,RestaurantPostalCode,Ativo")] Estabelecimento estabelecimentos)
+        public ActionResult Edit([Bind(Include = "ClienteID,Nome,Cpf,PhoneNumber,Email,Ativo,Pontos")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(estabelecimentos).State = EntityState.Modified;
+                db.Entry(cliente).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(estabelecimentos);
+            return View(cliente);
         }
 
-        // GET: Estabelecimentos/Delete/5
+        // GET: Clientes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Estabelecimento estabelecimentos = db.Estabelecimentos.Find(id);
-            if (estabelecimentos == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(estabelecimentos);
+            return View(cliente);
         }
 
-        // POST: Estabelecimentos/Delete/5
+        // POST: Clientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Estabelecimento estabelecimento = db.Estabelecimentos.Find(id);
-            estabelecimento.Ativo = false;
-            db.Entry(estabelecimento).State = EntityState.Modified;
+            Cliente cliente = db.Clientes.Find(id);
+            cliente.Ativo = false;
+            db.Entry(cliente).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

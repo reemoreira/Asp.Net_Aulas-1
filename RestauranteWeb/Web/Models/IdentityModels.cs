@@ -34,5 +34,7 @@ namespace Web.Models
         public System.Data.Entity.DbSet<BaseModels.Cliente> Clientes { get; set; }
 
         public System.Data.Entity.DbSet<BaseModels.Mesa> Mesas { get; set; }
+
+        public System.Data.Entity.DbSet<BaseModels.Reserva> Reservas { get; set; }
     }
 }
