@@ -54,7 +54,8 @@ namespace Web.Controllers
                 Mesa mesa = db.Mesas.Find(reserva.MesaID);              
                     if (ReservaBo.VerificarLugarPessoa(mesa, reserva.QtdPessoas).Equals("reserva atendida com sucesso"))
                     {
-                        ReservaBo.AdicionarPontos(reserva.Cliente);                        
+                        ReservaBo.AdicionarPontos(reserva.Cliente);
+                        //fazer tudo na action                     
                         db.Reservas.Add(reserva);
                         db.SaveChanges();
                         return RedirectToAction("Index");

@@ -36,6 +36,8 @@ namespace Web.BO
             }
             return null;
         }*/
+
+        //como fazer para passar um cliente para buscar e atribuir os pontos e salvar no banco
         public static string AdicionarPontos(Cliente cli)
         {
             if (cli.Pontos == 0)
@@ -48,7 +50,7 @@ namespace Web.BO
                int acum = cli.Pontos+50;
 
                 cli.Pontos = acum;
-             //   ClientesController.Edit(cli);
+             // ClientesController.Edit(cli);
                 return "mais 50 pontos foram atribuidos";
             }
             return null;

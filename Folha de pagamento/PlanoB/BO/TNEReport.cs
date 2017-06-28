@@ -15,7 +15,7 @@ namespace PlanoB.BO
 {
     public abstract class TNEReport
     {
-        protected XDocument doc;
+        protected Document doc;
         PdfWriter writer;
         MemoryStream output;
 
