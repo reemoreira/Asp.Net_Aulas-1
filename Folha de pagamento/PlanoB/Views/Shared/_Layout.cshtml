@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Nome do aplicativo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Início", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Sobre", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Genrenciar Cliente<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                @*fazer uma restrição por qm esta logado if(cliente esta on)*@
+                                <li>@Html.ActionLink("Cadastrar Funcionario", "Create", "Funcionarios")</li>
+                                <li>@Html.ActionLink("Deletar Funcionario", "DeleteConfirmed", "Funcionarios")</li>
+                                <li>@Html.ActionLink("Editar Funcionario", "Edit", "Funcionarios")</li>
+                                <li>@Html.ActionLink("Listar Funcionario", "Details", "Funcionario")</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Genrenciar Cliente<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                @*fazer uma restrição por qm esta logado if(cliente esta on)*@
+                                <li>@Html.ActionLink("Cadastrar Folha", "Create", "Folhas")</li>
+                                <li>@Html.ActionLink("Deletar Folha", "DeleteConfirmed", "Folhas")</li>
+                                <li>@Html.ActionLink("Editar Folha", "Edit", "Folhas")</li>
+                                <li>@Html.ActionLink("Listar Folha", "Details", "Folhas")</li>
+                            </ul>
+                        </li>
+                    }
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+                        @Scripts.Render("~/bundles/bootstrap")
+                        @RenderSection("scripts", required: false)
+                    </body>
+                </html>

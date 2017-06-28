@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BaseModels.Folha>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Funcionario.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MesAno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtdHorasTrabalhadas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorHora)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Funcionario.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MesAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtdHorasTrabalhadas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorHora)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FolhaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FolhaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FolhaID })
+        </td>
+    </tr>
+}
+
+</table>

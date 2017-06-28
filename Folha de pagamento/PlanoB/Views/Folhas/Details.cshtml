@@ -1,0 +1,50 @@
+﻿@model BaseModels.Folha
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Folha</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionario.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionario.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MesAno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MesAno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtdHorasTrabalhadas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtdHorasTrabalhadas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorHora)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FolhaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
