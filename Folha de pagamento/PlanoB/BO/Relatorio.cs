@@ -23,13 +23,13 @@ namespace PlanoB.BO
             base.MontaCorpoDados();
 
             #region Cabeçalho do Relatório
-            PdfPTable table = new PdfPTable(7);
+            PdfPTable table = new PdfPTable(5);
             BaseColor preto = new BaseColor(0, 0, 0);
             BaseColor fundo = new BaseColor(200, 200, 200);
             Font font = FontFactory.GetFont("Verdana", 8, Font.NORMAL, preto);
             Font titulo = FontFactory.GetFont("Verdana", 8, Font.BOLD, preto);
 
-            float[] colsW = { 10, 10, 10, 10, 10, 10, 10 };
+            float[] colsW = { 10, 10, 10, 10, 10};
             table.SetWidths(colsW);
             table.HeaderRows = 1;
             table.WidthPercentage = 100f;

@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Web.Models;
+using System.Web.Security;
 
 namespace Web.Controllers
 {
@@ -156,7 +157,12 @@ namespace Web.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
+
+                    Roles.CreateRole("Cliente");
+                    Roles.CreateRole("Dono");
+                    Roles.AddUserToRole(user.UserName, "Cliente");
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar um email com este link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

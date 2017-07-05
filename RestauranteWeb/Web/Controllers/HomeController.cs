@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Web.Controllers
 {
@@ -21,6 +22,14 @@ namespace Web.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult TornarAdmin()
+        {
+            Roles.AddUserToRole(User.Identity.Name, "Dono");
+
+            return RedirectToAction("Index");
+
         }
     }
 }

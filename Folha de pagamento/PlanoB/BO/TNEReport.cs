@@ -244,7 +244,7 @@ namespace PlanoB.BO
                 }
                 else
                 {
-                    foot = Image.GetInstance(BasePath + @"\Util\rmb_mascote.png");
+                    foot = Image.GetInstance(BasePath + @"\Util\azul grade.jpg");
                 }
                 foot.ScalePercent(60);
 
